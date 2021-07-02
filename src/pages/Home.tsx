@@ -71,19 +71,19 @@ export default function App(){
                 </div>
             :
                 <>
-                    {news.map(neww => {
+                    {news.map((value, key) => {
                         return (
                             <div className="body__card">
                                 <div className="body__header">
-                                    <p>{neww.publishedAt}</p>
+                                    <p key={key}>{value.publishedAt}</p>
                                     <img src={LikeImg} alt="like" onClick={handleLikeButton}/>
                                 </div>
                                 <br></br>
                                 <div className="body__title">
-                                    <h2>{neww.title}</h2>
+                                    <h2 key={key}>{value.title}</h2>
                                 </div>
                                 <div className="body__description">
-                                    <p>{neww.description}</p>
+                                    <p key={key}>{value.description}</p>
                                 </div>
                             </div>
                         )
