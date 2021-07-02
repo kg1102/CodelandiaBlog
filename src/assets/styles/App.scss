@@ -106,3 +106,46 @@ body, html {
         font-size: 1.125rem;
     }
 }
+
+.space {
+    margin-top: 10rem;
+}
+
+.loading {
+    font-family: 'Lexend Deca', sans-serif;
+    text-align: center;
+    justify-content:center;
+    margin-top: 10%;
+    h1 {
+        margin-top: 2vh;
+    }
+    span {
+        color: darkgrey;
+    }
+}
+
+.separator {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 70px;
+    color: #000000;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: '';
+        flex: 1;
+        height: 3px;
+        border-radius: 10px;
+        background: linear-gradient( to right, #574AE8, #3EA1DB);
+        margin-right: 15px;
+    }
+    &::after {
+        content: '';
+        flex: 1;
+        height: 3px;
+        border-radius: 10px;
+        background: linear-gradient( to right, #574AE8, #3EA1DB);
+        margin-left: 15px;
+    }
+}
