@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+}
+
+body, html {
+    background: #F3F5F7;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Versões antigas do Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Chrome, Edge, Opera e Firefox */
+}
+
+.header {
+    margin-top: -15px;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+    height:11em;
+    background-image: linear-gradient( to right, #574AE8, #3EA1DB);
+
+    .header__top{
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Lexend Deca', sans-serif;
+        color: white;
+        align-items: center;
+        h3 {
+            font-size: 27px;
+            padding: 35px 160px;
+            cursor: pointer;
+
+        }
+        h4 {
+            font-size: 25px;
+            padding: 10px 350px;
+        }
+    }
+
+    .header__search {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        width: 900px;
+        height: auto;
+        position: relative;
+        left: 30rem;
+        .header__input { 
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-size: 18px;
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: #FFF;
+        }
+        .header__imgsearch {
+            display: flex;
+            padding: 20px;
+            vertical-align: middle;
+        }
+    }
+
+    ::placeholder {
+       color: #FFF;
+       opacity: 0.5;
+    }
+}
+
+
+.body__card {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.05);
+    border-radius: 10px;
+    padding: 0 25px;
+    padding-top: 15px;
+    width: 54rem;
+    height: auto;
+    margin-top: 2rem;
+    position: relative;
+    left: 30rem;
+
+    .body__header {
+        display: flex;
+        justify-content: space-between;
+        p {
+            color: #B6B6B6;
+            font-family: 'Lexend Deca', sans-serif;
+        }
+        img {
+            cursor: pointer;
+        }
+    }
+
+    .body__title {
+        font-family: 'Lexend Deca', sans-serif;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .body__description {
+        font-family: 'Lexend Deca', sans-serif;
+        color: #B6B6B6;
+        line-height: 30px;
+        font-size: 1.125rem;
+    }
+}
