@@ -34,7 +34,7 @@ export default function App(){
 
 
     useEffect(()=>{
-        axios.get('https://newsapi.org/v2/top-headlines?country=br&apiKey=9c24c765b67b48eab01b0dea9682e85f').then(response => {
+        axios.get('http://api.mediastack.com/v1/news?access_key=2918d6b36db943a130970d697aa6dfec&countries=br').then(response => {
             setNews(response.data.articles);
             setLoading(false);
             ScrollReveal().reveal('.body__card', { delay: 200, viewFactor: 0.8 });
