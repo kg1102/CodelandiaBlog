@@ -35,11 +35,11 @@ export default function App(){
 
     useEffect(()=>{
         axios.get('https://api.mediastack.com/v1/news?access_key=2918d6b36db943a130970d697aa6dfec&countries=br', {
-            headers: {
-                'referer': 'http://localhost',
-                'host':"localhost",
-                'origin': 'http://localhost/',
-            }
+            // headers: {
+            //     'referer': 'http://localhost',
+            //     'host':"localhost",
+            //     'origin': 'http://localhost/',
+            // }
         }).then(response => {
             setNews(response.data.data);
             setLoading(false);
