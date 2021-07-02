@@ -18,6 +18,8 @@ body, html {
     padding: 20px 10px;
     height:11em;
     background-image: linear-gradient( to right, #574AE8, #3EA1DB);
+    text-shadow: 0 0 15px #574AE8, 0 0 25px #3EA1DB;
+    animation: glow 10s linear infinite;
 
     .header__top{
         display: flex;
@@ -127,10 +129,12 @@ body, html {
 .separator {
     font-family: 'Lexend Deca', sans-serif;
     font-size: 70px;
-    color: #000000;
     margin: 40px;
     display: flex;
     align-items: center;
+
+    color: rgb(39, 26, 26);
+
 
     &::before {
         content: '';
@@ -139,6 +143,10 @@ body, html {
         border-radius: 10px;
         background: linear-gradient( to right, #574AE8, #3EA1DB);
         margin-right: 15px;
+
+        text-shadow: 0 0 15px rgb(185, 85, 85), 0 0 25px rgb(0, 0, 0);
+        animation: glow 1.5s linear infinite;
+
     }
     &::after {
         content: '';
@@ -147,5 +155,18 @@ body, html {
         border-radius: 10px;
         background: linear-gradient( to right, #574AE8, #3EA1DB);
         margin-left: 15px;
+
+        text-shadow: 0 0 15px rgb(185, 85, 85), 0 0 25px rgb(0, 0, 0);
+        animation: glow 1.5s linear infinite;
+
+    }
+}
+
+@keyframes glow {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
     }
 }

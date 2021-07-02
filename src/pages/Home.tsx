@@ -15,7 +15,7 @@ export default function App(){
     type newType = {
         title: string,
         description: string,
-        publishedAt: string,
+        publishedAt: string
     }
 
     const [textSearch, setTextSearch] = useState('');
@@ -65,7 +65,7 @@ export default function App(){
             
             ?
                 <div className="loading">
-                    <SyncLoader color={"#CE153B"} loading={loading} size={16} />
+                    <SyncLoader color={"#CE153B"} loading={loading} size={15} />
                     <h1>Carregando...</h1>
                     <span>Uma pessoa que nunca cometeu um erro, nunca tentou nada novo.</span>
                 </div>
@@ -73,17 +73,17 @@ export default function App(){
                 <>
                     {news.map((value, key) => {
                         return (
-                            <div className="body__card">
+                            <div className="body__card" key={key}>
                                 <div className="body__header">
-                                    <p key={key}>{value.publishedAt}</p>
+                                    <p>{value.publishedAt}</p>
                                     <img src={LikeImg} alt="like" onClick={handleLikeButton}/>
                                 </div>
                                 <br></br>
                                 <div className="body__title">
-                                    <h2 key={key}>{value.title}</h2>
+                                    <h2>{value.title}</h2>
                                 </div>
                                 <div className="body__description">
-                                    <p key={key}>{value.description}</p>
+                                    <p>{value.description}</p>
                                 </div>
                             </div>
                         )
