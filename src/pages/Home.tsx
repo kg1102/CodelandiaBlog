@@ -35,7 +35,7 @@ export default function App(){
 
     useEffect(()=>{
         axios.get('http://api.mediastack.com/v1/news?access_key=2918d6b36db943a130970d697aa6dfec&countries=br').then(response => {
-            setNews(response.data.articles);
+            setNews(response.data.data);
             setLoading(false);
             ScrollReveal().reveal('.body__card', { delay: 200, viewFactor: 0.8 });
         });
