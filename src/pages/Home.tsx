@@ -15,7 +15,7 @@ export default function App(){
     type newType = {
         title: string,
         shortdescription: string,
-        publishedAt: string
+        publishdatestring: string
     }
 
     const [textSearch, setTextSearch] = useState('');
@@ -34,17 +34,12 @@ export default function App(){
 
 
     useEffect(()=>{
-        axios.get('https://content.sbt.com.br/api/notices?limit=10&idregional=0&idgender=15&orderby=publishdate&sort=desc', {
+        axios.get('https://search.sbt.com.br/api/notices/?limit=100', {
             headers: {
                 "accept": "application/json, text/plain, */*",
-                "accept-language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7",
-                "access-control-allow-origin": "*",
-                "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNidC1zaXRlLXByb2QiLCJlbmRwb2ludHMiOlsiKiJdLCJob3N0cyI6WyJodHRwOi8vd3d3LXByb2QudHZzYnQuY29tLmJyIiwiaHR0cDovL3d3dy5zYnQuY29tLmJyIiwiaHR0cHM6Ly93d3cuc2J0LmNvbS5iciIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJzZXJ2aWNlcyI6WyIqIl0sImlhdCI6MTU1MzU2MTI5MX0.6GBkl1U9CWUQfXYLPJDl5NLrIVolkcG5eJTKFDGZQEY",
-                "if-none-match": "W/\"aa17-Fq6pNHLlOKvP17Aiu8hBZnyNcjE\"",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site",
-                "sec-gpc": "1"
+                "Access-Control-Allow-Origin": "*",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRpZ2l0YWwtc2J0IiwiZW5kcG9pbnRzIjpbIioiXSwiaG9zdHMiOlsiKiJdLCJzZXJ2aWNlcyI6WyIqIl0sImlhdCI6MTU2MTY0MDA3N30.JVOG_G7oeDgZMKAaJEUysFkhNlzKQh1ABWrpzfV0XhQ",
+                "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             },
         }).then(response => {
             setNews(response.data.results);
@@ -87,7 +82,7 @@ export default function App(){
                         return (
                             <div className="body__card" key={key}>
                                 <div className="body__header">
-                                    <p>{value.publishedAt}</p>
+                                    <p>{value.publishdatestring}</p>
                                     <img src={LikeImg} alt="like" onClick={handleLikeButton}/>
                                 </div>
                                 <br></br>
