@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ScrollReveal from 'scrollreveal';
 import SyncLoader from "react-spinners/SyncLoader";
+import Modal from 'react-modal';
 
 
 
