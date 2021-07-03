@@ -14,7 +14,7 @@ export default function App(){
 
     type newType = {
         title: string,
-        description: string,
+        shortdescription: string,
         publishedAt: string
     }
 
@@ -34,14 +34,20 @@ export default function App(){
 
 
     useEffect(()=>{
-        axios.get('http://api.mediastack.com/v1/news?access_key=2918d6b36db943a130970d697aa6dfec&countries=br', {
-            // headers: {
-            //     'referer': 'http://localhost',
-            //     'host':"localhost",
-            //     'origin': 'http://localhost/',
-            // }
+        axios.get('https://content.sbt.com.br/api/notices?limit=10&idregional=0&idgender=15&orderby=publishdate&sort=desc', {
+            headers: {
+                "accept": "application/json, text/plain, */*",
+                "accept-language": "en-US,en;q=0.9,pt-BR;q=0.8,pt;q=0.7",
+                "access-control-allow-origin": "*",
+                "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNidC1zaXRlLXByb2QiLCJlbmRwb2ludHMiOlsiKiJdLCJob3N0cyI6WyJodHRwOi8vd3d3LXByb2QudHZzYnQuY29tLmJyIiwiaHR0cDovL3d3dy5zYnQuY29tLmJyIiwiaHR0cHM6Ly93d3cuc2J0LmNvbS5iciIsImh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJdLCJzZXJ2aWNlcyI6WyIqIl0sImlhdCI6MTU1MzU2MTI5MX0.6GBkl1U9CWUQfXYLPJDl5NLrIVolkcG5eJTKFDGZQEY",
+                "if-none-match": "W/\"aa17-Fq6pNHLlOKvP17Aiu8hBZnyNcjE\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "sec-gpc": "1"
+            },
         }).then(response => {
-            setNews(response.data.data);
+            setNews(response.data.results);
             setLoading(false);
             ScrollReveal().reveal('.body__card', { delay: 200, viewFactor: 0.8 });
         });
@@ -89,7 +95,7 @@ export default function App(){
                                     <h2>{value.title}</h2>
                                 </div>
                                 <div className="body__description">
-                                    <p>{value.description}</p>
+                                    <p>{value.shortdescription}</p>
                                 </div>
                             </div>
                         )
