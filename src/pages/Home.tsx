@@ -34,7 +34,7 @@ export default function App(){
 
 
     useEffect(()=>{
-        axios.get('https://search.sbt.com.br/api/notices/?limit=100', {
+        axios.get('https://search.sbt.com.br/api/notices/?limit=100&orderby=publishdate&sort=desc', {
             headers: {
                 "accept": "application/json, text/plain, */*",
                 "Access-Control-Allow-Origin": "*",
