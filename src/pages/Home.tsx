@@ -40,7 +40,6 @@ export default function App(){
                 "accept": "application/json, text/plain, */*",
                 "Access-Control-Allow-Origin": "*",
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRpZ2l0YWwtc2J0IiwiZW5kcG9pbnRzIjpbIioiXSwiaG9zdHMiOlsiKiJdLCJzZXJ2aWNlcyI6WyIqIl0sImlhdCI6MTU2MTY0MDA3N30.JVOG_G7oeDgZMKAaJEUysFkhNlzKQh1ABWrpzfV0XhQ",
-                "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             },
         }).then(response => {
             setNews(response.data.results);
@@ -48,6 +47,23 @@ export default function App(){
             ScrollReveal().reveal('.body__card', { delay: 200, viewFactor: 0.8 });
         });
     }, []);
+
+    function handleKeyDown(event: { key: string; }) {
+        if(event.key === 'Enter') {
+            if(textSearch.trim() !== '') {
+                axios.get(`https://search.sbt.com.br/api/notices?limit=10&orderby=publishdate&sort=desc&term=${textSearch}`, {
+                    headers: {
+                        "accept": "application/json, text/plain, */*",
+                        "Access-Control-Allow-Origin": "*",
+                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRpZ2l0YWwtc2J0IiwiZW5kcG9pbnRzIjpbIioiXSwiaG9zdHMiOlsiKiJdLCJzZXJ2aWNlcyI6WyIqIl0sImlhdCI6MTU2MTY0MDA3N30.JVOG_G7oeDgZMKAaJEUysFkhNlzKQh1ABWrpzfV0XhQ",
+                    },
+                }).then(response => {
+                    setNews(response.data.results);
+                    setLoading(false);
+                });
+            }
+        }
+      }
 
     return (
         <>  
@@ -65,6 +81,7 @@ export default function App(){
                         placeholder="Pesquisar no blog"
                         onChange={event => setTextSearch(event.target.value)}
                         value={textSearch}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
             </div>
